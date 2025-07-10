@@ -1,0 +1,234 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff;
+    /* Azul claro */
+    color: #333;
+    margin: 0;
+    padding: 20px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+th {
+    background-color: #000000;
+    /* Azul vivo */
+    color: white;
+    text-align: left;
+    padding: 12px;
+    font-size: 16px;
+}
+
+td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+    /* Cinza claro ao passar o mouse */
+}
+
+input[type="text"],
+input[type="password"],
+select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #28a745;
+    /* Verde */
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #218838;
+    /* Verde mais escuro */
+}
+
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+a {
+    color: #007bff;
+    /* Azul vivo */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+#erro {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+/* Barra lateral */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 250px;
+    background-color: #272e27;
+    /* Azul vivo */
+    padding: 20px;
+    box-shadow: 2px 0px 8px rgba(0, 0, 0, 0.2);
+    color: white;
+}
+
+.sidebar h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 22px;
+}
+
+.sidebar button {
+    display: block;
+    width: 100%;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    background-color: #28a745;
+    /* Verde */
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: left;
+    transition: background-color 0.3s;
+}
+
+.sidebar button:hover {
+    background-color: #218838;
+    /* Verde escuro */
+}
+
+/* Conteúdo principal */
+.content {
+    margin-left: 270px;
+    /* Espaço para a barra lateral */
+    padding: 20px;
+}
+
+/* Tabela e estilos existentes */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff;
+    /* Azul claro */
+    color: #333;
+    margin: 0;
+}
+
+table {
+    border-collapse: collapse;
+    width: 75%;
+    margin-left: 300px;
+    margin-bottom: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+th {
+    background-color: #262926;
+    /* Azul vivo */
+    color: white;
+    text-align: left;
+    padding: 12px;
+    font-size: 16px;
+}
+
+td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+    /* Cinza claro ao passar o mouse */
+}
+
+input[type="text"],
+input[type="password"],
+select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #28a745;
+    /* Verde */
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #218838;
+    /* Verde mais escuro */
+}
+
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+a {
+    color: #007bff;
+    /* Azul vivo */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.add-product-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.add-product-form input,
+.add-product-form textarea,
+.add-product-form button {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    width: 100%;
+}
+
+.add-product-form button {
+    background-color: #28a745;
+    color: white;
+    cursor: pointer;
+    border: none;
+}
+
+.add-product-form button:hover {
+    background-color: #218838;
+}

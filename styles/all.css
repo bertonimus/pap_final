@@ -1,0 +1,104 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    
+}
+
+.all-unset {
+    all: unset;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    text-align: center;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    
+    
+    
+}
+
+form {
+    
+    padding: 50px;
+    border-radius: 25px;
+    max-width: 400px;
+}
+
+main {
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.space-between-div {
+    display: flex;
+    align-items: center;
+    color: white;
+    justify-content: space-between;
+}
+
+.center-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.text-box {
+    border-radius: 100px;
+    border: 1px solid #000;
+    padding: 15px;
+    background-color: #eee;
+    width: 300px;
+}
+
+.text-button {
+    text-decoration: none;
+    color: #000;
+    background-color: #fff;
+    border-radius: 100px;
+    padding: 15px;
+    border: 1px solid #000;
+}
+
+.text-button:hover {
+    transition: 0.5s ease;
+
+    color: #5c5151;
+    background-color: #fafafa;
+}
+
+a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 1rem;
+}
+
+a:hover {
+    color: #6eda44;
+    transition: color 0.3s;
+}
+
+.erro {
+    color: #f33;
+}
+
+
+
+.com-registo,
+.sem-registo {
+    align-items: center;
+    gap: 10px;
+}

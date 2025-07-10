@@ -1,0 +1,25 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #f8f9fa;
+}
+
+.navbar-list {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    margin-left: 40px;
+    padding: 0;
+}
+
+.navbar-list a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+.navbar-list a.active {
+    color: #28a745;
+}

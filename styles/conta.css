@@ -1,0 +1,224 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-image: url("image.jpg");
+    display: flex;
+    background-attachment: fixed;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 350px;
+    text-align: center;
+    margin-right: 0px;  
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+.form-group {
+    position: relative;
+    margin-top: 20px;
+    width: 300px;
+    margin: 0 auto; /* Centraliza o campo do formulário */
+}
+
+.form-control {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 12px;
+    font-size: 16px;
+    width: 100%;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.switch {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.switch button {
+    width: 50%;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    background-color: #f0f0f0;
+    border-radius: 5px 5px 0 0;
+    font-weight: bold;
+}
+
+.switch .active {
+    background-color: #000;
+    color: white;
+}
+
+.signup-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.input-group {
+    display: flex;
+    gap: 15px;
+}
+
+input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+}
+
+input[type="submit"] {
+    padding: 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #000;
+}
+.social-login {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.social-login button {
+    width: 30%;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.google {
+    background-color: #ffffff;
+    color: white;
+}
+
+.facebook {
+    background-color: #fdfdfd;
+    color: white;
+}
+
+.apple {
+    background-color: rgb(255, 255, 255);
+    color: white;
+}
+
+p {
+    margin-top: 20px;
+    color: #888;
+}
+.password-requirements {
+    display: none;
+    list-style-type: none;
+    padding: 0;
+    margin-top: 10px;
+    font-size: 14px;
+    color: #888;
+}
+
+.password-requirements li {
+    margin-bottom: 5px;
+}
+
+.password-requirements li.valid {
+    color: green;
+    text-decoration: line-through;
+}
+
+.password-requirements li.invalid {
+    color: red;
+}
+
+.password-match {
+    display: none;
+    margin-top: 5px;
+    font-size: 14px;
+}
+
+.password-match.valid {
+    color: green;
+}
+
+.password-match.invalid {
+    color: red;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+header nav a {
+    color: #fff;
+    margin: 0 15px;
+    text-decoration: none;
+}
+
+#produtos, #carrinho {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 10px;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.produto {
+    border: 1px solid #ddd;
+    margin: 10px;
+    padding: 10px;
+}
+
+button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #555;
+}
+
+#carrinho {
+    margin-top: 30px;
+}
+

@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Configurações globais */
+body {
+    display: flex;
+    flex-direction: column; /* Organiza os filhos do body em uma coluna */
+    min-height: 100vh; /* Faz o body ocupar a altura total da janela */
+    margin: 0; /* Remove margens padrão */
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.5;
+    box-sizing: border-box;
+}
+
+/* Navbar (fixada no topo, mas não ocupa espaço flex adicional) */
+.navbar {
+    flex-shrink: 0; /* Impede que a navbar encolha */
+}
+
+/* Área principal que cresce automaticamente */
+main {
+    flex: 1; /* Faz o main expandir e ocupar o espaço disponível */
+}
+
+/* Footer fixado no final */
+.footer {
+    margin-top: auto; /* Empurra o footer para o final da página */
+    background-color: #24262b; /* Cor de fundo do footer */
+    padding: 10px 0; /* Espaçamento interno reduzido */
+    text-align: center; /* Centraliza o conteúdo */
+    transition: transform 0.3s ease; /* Transição suave para o footer */
+    transform: translateY(100%); /* Inicialmente fora da tela */
+}
+
+/* Estilo para o container no footer */
+.footer .container {
+    max-width: 1170px;
+    margin: auto;
+}
+
+/* Configurações das colunas do footer */
+.footer .row {
+    display: flex;
+    flex-wrap: wrap; /* Permite que as colunas se ajustem em telas menores */
+}
+
+.footer-col {
+    width: 25%; /* Largura padrão das colunas */
+    padding: 0 15px; /* Espaçamento interno das colunas */
+}
+
+.footer-col h4 {
+    font-size: 18px;
+    color: #ffffff;
+    text-transform: capitalize;
+    margin-bottom: 35px;
+    font-weight: 500;
+    position: relative;
+}
+
+.footer-col h4::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    background-color: #6eda44;
+    height: 2px;
+    width: 50px;
+}
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-col ul li:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+    font-size: 16px;
+    text-transform: capitalize;
+    color: #bbbbbb;
+    text-decoration: none;
+    font-weight: 300;
+    transition: all 0.3s ease;
+}
+
+.footer-col ul li a:hover {
+    color: #ffffff;
+    padding-left: 8px;
+}
+
+/* Redes sociais no footer */
+.footer-col .social-links a {
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    background-color: #6eda44;
+    margin: 0 10px 10px 0;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 50%;
+    color: #ffffff;
+    transition: all 0.5s ease;
+}
+
+.footer-col .social-links a:hover {
+    color: #6eda44;
+    background-color: #ffffff;
+}
+
+/* Configurações responsivas */
+@media (max-width: 767px) {
+    .footer-col {
+        width: 50%; /* Ajusta para 2 colunas em telas menores */
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 574px) {
+    .footer-col {
+        width: 100%; /* Ajusta para 1 coluna em telas muito pequenas */
+    }
+}

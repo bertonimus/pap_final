@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar Conta</title>
+    <link rel="icon" type="image/x-icon" href="berto.jpg">
+    <link rel="stylesheet" type="text/css" href="styles/conta.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Login</h2>
+        
+
+        <!-- Formulário Pessoal -->
+        <form class="signup-form" action="utilizador/login.php" method="POST">
+            <input type="email" name="email" placeholder="E-mail" required >
+            <input type="password" id="senhaPersonal" name="senha" placeholder="Senha" required
+                   oncopy="return false" onpaste="return false" oncut="return false"> <!-- Desabilita copiar/colar/cortar -->
+            <input type="hidden" name="tipo" value="pessoal">
+    
+            <input type="submit" name="botaoLogin" value="Entrar">
+        </form>
+
+        
+
+        <p>Ou continuar com</p>
+        <div class="social-login">
+            <button>
+                <img src="google.png" alt="google" style="width: 20px; height: 20px; vertical-align: middle;">
+            </button>  
+            <button>
+                <img src="facebook.png" alt="facebook" style="width: 20px; height: 20px; vertical-align: middle;">
+            </button>
+            <button>
+                <img src="apple.png" alt="apple" style="width: 20px; height: 25px; vertical-align: middle;">
+            </button>
+        </div>
+    </div>
