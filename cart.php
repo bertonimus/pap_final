@@ -7,6 +7,7 @@ $usuario = "root";
 $senha = "";
 $banco = "gestao_utilizadores";
 
+
 $conn = new mysqli($servidor, $usuario, $senha, $banco);
 
 if ($conn->connect_error) {

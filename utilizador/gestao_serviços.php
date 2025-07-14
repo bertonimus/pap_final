@@ -7,7 +7,7 @@
     }
 
     // Variáveis da sessão
-    $id_utilizador = $_SESSION['id_tipos_utilizador']; 
+    $id_utilizador = $_SESSION['id_utilizadores'];
     $tipo_utilizador = $_SESSION['id_tipos_utilizador']; 
     ?>
 

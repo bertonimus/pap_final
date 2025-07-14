@@ -7,10 +7,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
   <link rel="stylesheet" href="style.css" />
+   <link rel="icon" type="image/png" href="../berto.png" />
   <title>página de login e registo</title>
 </head>
 
 <body>
+  <div style="position: absolute; top: 20px; left: 30px; z-index: 10;">
+    <span
+      style="font-size: 2rem; font-weight: bold; color:rgb(0, 0, 0); font-family: 'Segoe UI', Arial, sans-serif; letter-spacing: 2px;">
+      Berto
+    </span>
+  </div>
   <div class="container">
     <div class="forms">
       <div class="form login">
@@ -29,10 +36,7 @@
           </div>
 
           <div class="checkbox-text">
-            <div class="checkbox-content">
-              <input type="checkbox" id="logCheck" />
-              <label for="logCheck" class="text">Lembrar-me</label>
-            </div>
+           
 
             <a href="enviar_codigo.php" class="text">Esqueceu a password?</a>
           </div>
@@ -63,14 +67,8 @@
             <i class="uil uil-envelope icon"></i>
           </div>
           <div class="input-field">
-            <input type="password" id="senhaPersonal" name="password" placeholder="escreva password" required />
+            <input type="password" id="signupPassword" name="password" placeholder="escolha password" required />
             <i class="uil uil-lock icon"></i>
-          </div>
-          <div class="checkbox-text">
-            <div class="checkbox-content">
-              <input type="checkbox" id="termCon" />
-              <label for="termCon" class="text">Aceito os termos e Condições</label>
-            </div>
           </div>
           <?php
           if (isset($_SESSION['erro'])) {
@@ -95,6 +93,36 @@
   </div>
 
   <script src="script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const passwordInput = document.getElementById('signupPassword');
+      const form = passwordInput.closest('form');
+
+      function validatePassword(password) {
+        const minLength = /.{8,}/;
+        const upper = /[A-Z]/;
+        const lower = /[a-z]/;
+        const number = /[0-9]/;
+        const special = /[^A-Za-z0-9]/;
+        let messages = [];
+        if (!minLength.test(password)) messages.push("Pelo menos 8 caracteres");
+        if (!upper.test(password)) messages.push("Uma letra maiúscula");
+        if (!lower.test(password)) messages.push("Uma letra minúscula");
+        if (!number.test(password)) messages.push("Um número");
+        if (!special.test(password)) messages.push("Um símbolo");
+        return messages;
+      }
+
+      form.addEventListener('submit', function (e) {
+        const messages = validatePassword(passwordInput.value);
+        if (messages.length > 0) {
+          e.preventDefault();
+          alert("A password deve conter:\n" + messages.join("\n"));
+          passwordInput.focus();
+        }
+      });
+    });
+  </script>
 </body>
 
 </html>

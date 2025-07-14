@@ -43,12 +43,12 @@ $conn->close();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Berto - Encontre Ajuda para Qualquer Tarefa</title>
+    <title>Página Sobre - Berto</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="icon" type="image/png" href="../berto.png" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+     <link rel="icon" type="image/png" href="../berto.png" />
     <style>
         :root {
             --primary-color: #059669;
@@ -96,29 +96,11 @@ $conn->close();
             top: 0;
             z-index: 1000;
             box-shadow: var(--shadow-soft);
-        }
-
-        .navbar-container {
-            max-width: 1400px;
-            margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 1rem 2rem;
-        }
-
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 2rem;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--border-color);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: var(--shadow-soft);
+            max-width: 100%;
         }
 
         .navbar h1 {
@@ -216,6 +198,7 @@ $conn->close();
             visibility: hidden;
             transform: translateY(-10px);
             transition: all var(--transition-speed);
+            z-index: 1000;
         }
 
         .profile-dropdown.active .profile-dropdown-list {
@@ -233,6 +216,7 @@ $conn->close();
             text-decoration: none;
             font-weight: 500;
             transition: all var(--transition-speed);
+            width: 100%;
         }
 
         .profile-dropdown-list-item a:hover {
@@ -253,20 +237,20 @@ $conn->close();
             padding: 0 2rem;
         }
 
-        /* Hero Section */
-        .hero {
+        /* About Hero */
+        .about-hero {
             background: linear-gradient(135deg, rgba(16, 185, 129, 0.95), rgba(5, 150, 105, 0.95)), 
                         url('https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
             background-size: cover;
             background-position: center;
             color: white;
             text-align: center;
-            padding: 8rem 2rem;
+            padding: 6rem 2rem;
             position: relative;
             overflow: hidden;
         }
 
-        .hero::before {
+        .about-hero::before {
             content: '';
             position: absolute;
             top: -50%;
@@ -284,182 +268,189 @@ $conn->close();
             z-index: 1;
         }
 
-        .hero h1 {
-            font-size: 4rem;
+        .hero-content h1 {
+            font-size: 3.5rem;
             font-weight: 700;
             margin-bottom: 1.5rem;
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
-        .hero p {
-            font-size: 1.5rem;
-            margin-bottom: 3rem;
+        .hero-content p {
+            font-size: 1.3rem;
             opacity: 0.95;
             font-weight: 400;
         }
 
-        .hero-buttons {
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 1rem 2.5rem;
-            border-radius: var(--border-radius);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: all var(--transition-speed);
-            box-shadow: var(--shadow-soft);
-            border: 2px solid transparent;
-        }
-
-        .btn-primary {
-            background: white;
-            color: var(--primary-color);
-        }
-
-        .btn-primary:hover {
-            background: var(--background-color);
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-medium);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: white;
-            border-color: white;
-        }
-
-        .btn-secondary:hover {
-            background: white;
-            color: var(--primary-color);
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-medium);
-        }
-
-        /* Highlights */
-        .highlights {
+        /* Our Story */
+        .our-story {
+            padding: 6rem 0;
             background: var(--card-background);
-            padding: 5rem 0;
-            margin-top: -3rem;
-            position: relative;
-            z-index: 2;
         }
 
-        .highlights .container {
+        .story-content {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
-            text-align: center;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
         }
 
-        .highlight-card {
-            background: var(--card-background);
-            padding: 3rem 2rem;
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow-soft);
-            border: 1px solid var(--border-color);
-            transition: all var(--transition-speed);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .highlight-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(16, 185, 129, 0.1), transparent);
-            transition: left 0.6s;
-        }
-
-        .highlight-card:hover::before {
-            left: 100%;
-        }
-
-        .highlight-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-strong);
-            border-color: rgba(16, 185, 129, 0.3);
-        }
-
-        .highlight-card i {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .highlight-card h3 {
+        .story-text h2 {
             font-size: 2.5rem;
-            color: var(--text-primary);
-            margin-bottom: 0.5rem;
             font-weight: 700;
+            margin-bottom: 2rem;
+            color: var(--text-primary);
         }
 
-        .highlight-card p {
-            color: var(--text-secondary);
+        .story-text p {
             font-size: 1.1rem;
-            font-weight: 500;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
         }
 
-        /* Como Funciona */
-        .how-it-works {
+        .story-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-medium);
+        }
+
+        /* Mission Vision Values */
+        .mission-vision-values {
             padding: 6rem 0;
             background: var(--background-color);
         }
 
-        .how-it-works h2 {
+        .mission-vision-values h2 {
             text-align: center;
-            font-size: 3rem;
+            font-size: 2.5rem;
             font-weight: 700;
             margin-bottom: 4rem;
             color: var(--text-primary);
         }
 
-        .steps {
+        .pillars {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 3rem;
-            text-align: center;
         }
 
-        .step {
+        .pillar {
             background: var(--card-background);
             padding: 3rem 2rem;
             border-radius: var(--border-radius);
             box-shadow: var(--shadow-soft);
             border: 1px solid var(--border-color);
+            text-align: center;
             transition: all var(--transition-speed);
-            position: relative;
-            overflow: hidden;
         }
 
-        .step::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary-color), var(--accent-blue), var(--accent-purple));
-            transform: scaleX(0);
-            transition: transform var(--transition-speed);
+        .pillar:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-strong);
+            border-color: rgba(16, 185, 129, 0.3);
         }
 
-        .step:hover::before {
-            transform: scaleX(1);
+        .pillar-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            color: white;
         }
 
-        .step:hover {
+        .pillar-icon i {
+            font-size: 2rem;
+        }
+
+        .pillar h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .pillar p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Statistics */
+        .statistics {
+            padding: 6rem 0;
+            background: var(--card-background);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 2rem;
+            background: var(--background-color);
+            border-radius: var(--border-radius);
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-soft);
+            transition: all var(--transition-speed);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        /* How We Work */
+        .how-we-work {
+            padding: 6rem 0;
+            background: var(--background-color);
+        }
+
+        .how-we-work h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 4rem;
+            color: var(--text-primary);
+        }
+
+        .work-process {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+
+        .process-step {
+            background: var(--card-background);
+            padding: 3rem 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-soft);
+            border: 1px solid var(--border-color);
+            text-align: center;
+            transition: all var(--transition-speed);
+        }
+
+        .process-step:hover {
             transform: translateY(-8px);
             box-shadow: var(--shadow-strong);
         }
@@ -473,98 +464,162 @@ $conn->close();
             align-items: center;
             justify-content: center;
             margin: 0 auto 2rem;
-            box-shadow: var(--shadow-soft);
-        }
-
-        .step-icon i {
-            font-size: 2rem;
             color: white;
         }
 
-        .step h3 {
+        .step-icon i {
+            font-size: 1.5rem;
+        }
+
+        .process-step h3 {
             font-size: 1.5rem;
             font-weight: 600;
             color: var(--text-primary);
             margin-bottom: 1rem;
         }
 
-        .step p {
+        .process-step p {
             color: var(--text-secondary);
-            font-size: 1rem;
             line-height: 1.6;
         }
 
-        /* Categorias Populares */
-        .popular-categories {
+        /* Security Trust */
+        .security-trust {
             padding: 6rem 0;
             background: var(--card-background);
         }
 
-        .popular-categories h2 {
+        .security-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .security-text h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: var(--text-primary);
+        }
+
+        .security-features {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: var(--background-color);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            transition: all var(--transition-speed);
+        }
+
+        .feature:hover {
+            background: rgba(16, 185, 129, 0.05);
+            border-color: var(--primary-color);
+        }
+
+        .feature i {
+            color: var(--primary-color);
+            font-size: 1.25rem;
+        }
+
+        .feature span {
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        .security-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-medium);
+        }
+
+        /* Location */
+        .location {
+            padding: 6rem 0;
+            background: var(--background-color);
+        }
+
+        .location h2 {
             text-align: center;
-            font-size: 3rem;
+            font-size: 2.5rem;
             font-weight: 700;
             margin-bottom: 4rem;
             color: var(--text-primary);
         }
 
-        .categories {
+        .location-content {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .location-info {
+            display: flex;
+            flex-direction: column;
             gap: 2rem;
         }
 
-        .category {
+        .location-item {
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 2.5rem 2rem;
-            background: var(--background-color);
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 2rem;
+            background: var(--card-background);
             border-radius: var(--border-radius);
-            text-decoration: none;
-            color: var(--text-primary);
-            transition: all var(--transition-speed);
             border: 1px solid var(--border-color);
             box-shadow: var(--shadow-soft);
-            position: relative;
-            overflow: hidden;
         }
 
-        .category::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(16, 185, 129, 0.1), transparent);
-            transition: left 0.6s;
+        .location-item i {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-top: 0.25rem;
         }
 
-        .category:hover::before {
-            left: 100%;
-        }
-
-        .category:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-strong);
-            border-color: rgba(16, 185, 129, 0.3);
-            text-decoration: none;
-            color: var(--text-primary);
-        }
-
-        .category i {
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .category span {
-            font-size: 1.1rem;
+        .location-item h3 {
+            font-size: 1.25rem;
             font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .location-item p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .location-map {
+            background: var(--card-background);
+            border-radius: var(--border-radius);
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-soft);
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .map-placeholder {
+            text-align: center;
+            color: var(--text-secondary);
+        }
+
+        .map-placeholder i {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
         }
 
         /* CTA */
@@ -613,15 +668,40 @@ $conn->close();
             flex-wrap: wrap;
         }
 
-        .cta .btn-primary {
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all var(--transition-speed);
+            box-shadow: var(--shadow-soft);
+            border: 2px solid transparent;
+        }
+
+        .btn-primary {
             background: white;
             color: var(--primary-color);
         }
 
-        .cta .btn-secondary {
+        .btn-primary:hover {
+            background: var(--background-color);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .btn-secondary {
             background: transparent;
             color: white;
             border-color: white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-medium);
         }
 
         /* Footer */
@@ -687,6 +767,7 @@ $conn->close();
             border-radius: 50%;
             color: #d1d5db;
             transition: all var(--transition-speed);
+            text-decoration: none;
         }
 
         .social-links a:hover {
@@ -704,22 +785,36 @@ $conn->close();
 
         /* Animations */
         @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(180deg); }
+            0%, 100% { 
+                transform: translateY(0px) rotate(0deg); 
+            }
+            50% { 
+                transform: translateY(-20px) rotate(180deg); 
+            }
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from { 
+                opacity: 0; 
+                transform: translateY(20px); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0); 
+            }
         }
 
-        .highlight-card,
-        .step,
-        .category {
-            animation: fadeIn 0.6s ease-out forwards;
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
         }
 
-        /* Responsividade */
+        @keyframes slideOut {
+            from { transform: translateX(0); opacity: 1; }
+            to { transform: translateX(100%); opacity: 0; }
+        }
+
+        /* Responsive */
         @media (max-width: 768px) {
             .navbar {
                 padding: 1rem;
@@ -729,31 +824,30 @@ $conn->close();
                 display: none;
             }
 
-            .hero {
-                padding: 5rem 1rem;
+            .about-hero {
+                padding: 4rem 1rem;
             }
 
-            .hero h1 {
+            .hero-content h1 {
                 font-size: 2.5rem;
             }
 
-            .hero p {
-                font-size: 1.2rem;
+            .story-content,
+            .security-content,
+            .location-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
             }
 
-            .hero-buttons {
-                flex-direction: column;
-                align-items: center;
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
 
-            .highlights .container,
-            .steps,
-            .categories {
+            .pillars,
+            .work-process {
                 grid-template-columns: 1fr;
             }
 
-            .how-it-works h2,
-            .popular-categories h2,
             .cta h2 {
                 font-size: 2rem;
             }
@@ -766,20 +860,31 @@ $conn->close();
             .container {
                 padding: 0 1rem;
             }
+
+            .mission-vision-values h2,
+            .how-we-work h2,
+            .location h2 {
+                font-size: 2rem;
+            }
         }
 
         @media (max-width: 480px) {
-            .hero h1 {
+            .hero-content h1 {
                 font-size: 2rem;
             }
 
-            .navbar h1 {
-                font-size: 1.5rem;
+            .stats-grid {
+                grid-template-columns: 1fr;
             }
 
-            .highlight-card,
-            .step {
+            .pillar,
+            .process-step {
                 padding: 2rem 1.5rem;
+            }
+
+            .story-text h2,
+            .security-text h2 {
+                font-size: 2rem;
             }
         }
     </style>
@@ -790,13 +895,12 @@ $conn->close();
     <nav class="navbar">
         <h1>Berto</h1>
         <ul class="navbar-list">
-            <li><a href="index.php" class="active">Início</a></li>
+            <li><a href="index.php">Início</a></li>
             <li><a href="produtos.php">Produtos</a></li>
             <li><a href="serviços_login.php">Serviços</a></li>
             <li><a href="suporte.php">Suporte</a></li>
             <li><a href="messages.php">Mensagens</a></li>
-            <li><a href="sobre.php">Sobre</a></li>
-            
+            <li><a href="#" class="active">Sobre</a></li>
         </ul>
 
         <div class="profile-dropdown">
@@ -860,78 +964,155 @@ $conn->close();
 
     <main>
         <!-- Hero Section -->
-        <section class="hero">
+        <section class="about-hero">
             <div class="hero-content">
-                <h1>Conectamos pessoas a soluções</h1>
-                <p>Encontre ajuda para qualquer tarefa ou ofereça seus serviços</p>
-                <div class="hero-buttons">
-                    <a href="serviços.php" class="btn btn-primary">Procurar Serviços</a>
-                    <a href="registop2.php" class="btn btn-secondary">Tornar-se Prestador</a>
+                <h1>Sobre o Berto</h1>
+                <p>Conectando pessoas e transformando a forma como os serviços são encontrados e prestados</p>
+            </div>
+        </section>
+
+        <!-- Nossa História -->
+        <section class="our-story">
+            <div class="container">
+                <div class="story-content">
+                    <div class="story-text">
+                        <h2>Nossa História</h2>
+                        <p>
+                            O Berto nasceu da necessidade de criar uma ponte entre pessoas que precisam de ajuda 
+                            e aquelas que têm habilidades para oferecer. Fundada em 2025, nossa plataforma tem 
+                            como missão simplificar a vida das pessoas, conectando-as a soluções práticas e 
+                            confiáveis para o dia a dia.
+                        </p>
+                        <p>
+                            
+                        </p>
+                    </div>
+                    <div class="story-image">
+                        <img 
+                            src="https://images.pexels.com/photos/3183153/pexels-photo-3183153.jpeg?auto=compress&cs=tinysrgb&w=600" 
+                            alt="Equipe colaborando"
+                        />
+                    </div>
                 </div>
             </div>
         </section>
 
-                    
-
-        <!-- Como Funciona -->
-        <section class="how-it-works">
+        <!-- Missão, Visão e Valores -->
+        <section class="mission-vision-values">
             <div class="container">
-                <h2>Como Funciona</h2>
-                <div class="steps">
-                    <div class="step">
+                <h2>Nossos Pilares</h2>
+                <div class="pillars">
+                    <div class="pillar">
+                        <div class="pillar-icon">
+                            <i class="fas fa-bullseye"></i>
+                        </div>
+                        <h3>Missão</h3>
+                        <p>
+                            Conectar pessoas que precisam de serviços com prestadores qualificados, 
+                            criando uma economia colaborativa baseada na confiança e qualidade.
+                        </p>
+                    </div>
+                    <div class="pillar">
+                        <div class="pillar-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h3>Visão</h3>
+                        <p>
+                            Ser a principal plataforma de serviços colaborativos, reconhecida pela 
+                            excelência, inovação e impacto positivo na vida das pessoas.
+                        </p>
+                    </div>
+                    <div class="pillar">
+                        <div class="pillar-icon">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <h3>Valores</h3>
+                        <p>
+                            Confiança, transparência, qualidade, inovação e compromisso com a 
+                            satisfação de nossa comunidade.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+
+        <!-- Como Trabalhamos -->
+        <section class="how-we-work">
+            <div class="container">
+                <h2>Como Trabalhamos</h2>
+                <div class="work-process">
+                    <div class="process-step">
                         <div class="step-icon">
                             <i class="fas fa-search"></i>
                         </div>
-                        <h3>Encontre</h3>
-                        <p>Busque o serviço que precisa entre diversas categorias</p>
+                        <h3>Conectamos</h3>
+                        <p>Utilizamos tecnologia avançada para conectar você aos melhores prestadores de serviço</p>
                     </div>
-                    <div class="step">
+                    <div class="process-step">
                         <div class="step-icon">
-                            <i class="fas fa-handshake"></i>
+                            <i class="fas fa-check-circle"></i>
                         </div>
-                        <h3>Conecte</h3>
-                        <p>Entre em contato e combine os detalhes</p>
+                        <h3>Verificamos</h3>
+                        <p>Todos os prestadores passam por um processo rigoroso de verificação e avaliação</p>
                     </div>
-                    <div class="step">
+                    <div class="process-step">
                         <div class="step-icon">
-                            <i class="fas fa-star"></i>
+                            <i class="fas fa-users"></i>
                         </div>
-                        <h3>Avalie</h3>
-                        <p>Compartilhe sua experiência com a comunidade</p>
+                        <h3>Acompanhamos</h3>
+                        <p>Oferecemos suporte contínuo durante todo o processo, do primeiro contato à finalização</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Categorias Populares -->
-        <section class="popular-categories">
+        <!-- Segurança e Confiança -->
+        <section class="security-trust">
             <div class="container">
-                <h2>Categorias Populares</h2>
-                <div class="categories">
-                    <a href="serviços.php?cat=domesticos" class="category">
-                        <i class="fas fa-home"></i>
-                        <span>Serviços Domésticos</span>
-                    </a>
-                    <a href="serviços.php?cat=assistencia" class="category">
-                        <i class="fas fa-shopping-cart"></i>
-                        <span>Assistência Pessoal</span>
-                    </a>
-                    <a href="serviços.php?cat=manutencao" class="category">
-                        <i class="fas fa-tools"></i>
-                        <span>Manutenção</span>
-                    </a>
-                    <a href="serviços.php?cat=tecnologia" class="category">
-                        <i class="fas fa-laptop"></i>
-                        <span>Tecnologia</span>
-                    </a>
+                <div class="security-content">
+                    <div class="security-text">
+                        <h2>Segurança e Confiança</h2>
+                        <div class="security-features">
+                            <div class="feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Verificação rigorosa de todos os prestadores</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Sistema de avaliações e comentários transparente</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Proteção de dados e privacidade garantida</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Suporte 24/7 para resolução de problemas</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Pagamento seguro e protegido</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="security-image">
+                        <img 
+                            src="https://images.pexels.com/photos/4427622/pexels-photo-4427622.jpeg?auto=compress&cs=tinysrgb&w=600" 
+                            alt="Segurança digital"
+                        />
+                    </div>
                 </div>
             </div>
         </section>
+
+        
 
         <!-- CTA -->
         <section class="cta">
             <div class="container">
-                <h2>Pronto para começar?</h2>
+                <h2>Faça Parte da Nossa Comunidade</h2>
                 <p>Junte-se a milhares de pessoas que já confiam em nossa plataforma</p>
                 <div class="cta-buttons">
                     <a href="registop2.php" class="btn btn-primary">Criar Conta Grátis</a>
@@ -949,7 +1130,6 @@ $conn->close();
                     <h4>Empresa</h4>
                     <ul>
                         <li><a href="#">Sobre Nós</a></li>
-                        
                         <li><a href="#">Berto © 2025 by Afonso Nunes Ferraz is licensed under CC BY-NC-SA 4.0</a></li>
                     </ul>
                 </div>
@@ -959,10 +1139,8 @@ $conn->close();
                         <li><a href="suporte.php">FAQ</a></li>
                         <li><a href="suporte.php">Como Funciona</a></li>
                         <li><a href="suporte.php">Suporte</a></li>
-                        
                     </ul>
                 </div>
-               
                 <div class="footer-col">
                     <h4>Siga-nos</h4>
                     <div class="social-links">
@@ -992,14 +1170,6 @@ $conn->close();
             if (!dropdown.contains(event.target)) {
                 dropdown.classList.remove('active');
             }
-        });
-
-        // Category card interactions
-        document.querySelectorAll('.category').forEach(card => {
-            card.addEventListener('click', function(e) {
-                const category = this.querySelector('span').textContent;
-                showNotification(`Explorando categoria: ${category}`, 'info');
-            });
         });
 
         // Notification system
@@ -1033,20 +1203,6 @@ $conn->close();
             }, 3000);
         }
 
-        // Add CSS for notification animations
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes slideIn {
-                from { transform: translateX(100%); opacity: 0; }
-                to { transform: translateX(0); opacity: 1; }
-            }
-            @keyframes slideOut {
-                from { transform: translateX(0); opacity: 1; }
-                to { transform: translateX(100%); opacity: 0; }
-            }
-        `;
-        document.head.appendChild(style);
-
         // Smooth scroll for internal links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -1061,15 +1217,99 @@ $conn->close();
             });
         });
 
-        // Hero buttons interactions
-        document.querySelectorAll('.hero-buttons .btn, .cta-buttons .btn').forEach(btn => {
-            btn.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-3px) scale(1.02)';
+        // Button hover effects
+        document.addEventListener('DOMContentLoaded', function() {
+            // CTA buttons interactions
+            document.querySelectorAll('.cta-buttons .btn').forEach(btn => {
+                btn.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-3px) scale(1.02)';
+                });
+                
+                btn.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
             });
+
+            // Animate elements on scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animation = 'fadeIn 0.6s ease-out forwards';
+                    }
+                });
+            }, observerOptions);
+
+            // Observe elements for animation
+            document.querySelectorAll('.pillar, .process-step, .stat-card, .feature').forEach(el => {
+                observer.observe(el);
+            });
+
+            // Counter animation for statistics
+            function animateCounter(element, target) {
+                let current = 0;
+                const increment = target / 100;
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        current = target;
+                        clearInterval(timer);
+                    }
+                    
+                    if (target >= 1000) {
+                        element.textContent = Math.floor(current / 1000) + 'K+';
+                    } else if (target < 10) {
+                        element.textContent = current.toFixed(1);
+                    } else {
+                        element.textContent = Math.floor(current);
+                    }
+                }, 20);
+            }
+
+            // Animate counters when they come into view
+            const counterObserver = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const counter = entry.target;
+                        const text = counter.textContent;
+                        
+                        let target;
+                        if (text.includes('K+')) {
+                            target = parseInt(text.replace('K+', '')) * 1000;
+                        } else if (text === '4.8') {
+                            target = 4.8;
+                        } else if (text === '24/7') {
+                            return; // Skip animation for 24/7
+                        } else {
+                            target = parseInt(text);
+                        }
+                        
+                        if (!isNaN(target)) {
+                            animateCounter(counter, target);
+                        }
+                        
+                        counterObserver.unobserve(counter);
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            document.querySelectorAll('.stat-number').forEach(counter => {
+                counterObserver.observe(counter);
+            });
+        });
+
+        // Add loading animation
+        window.addEventListener('load', function() {
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.3s ease-in-out';
             
-            btn.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1)';
-            });
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 100);
         });
     </script>
 </body>

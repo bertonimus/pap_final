@@ -279,6 +279,7 @@ $conn->close();
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+     <link rel="icon" type="image/png" href="../berto.png" />
     <style>
         :root {
             --primary-color: #f59e0b;
@@ -1149,7 +1150,7 @@ $conn->close();
                         <li><a href="product_messages.php" class="products"><i class="fa-solid fa-box"></i>Produtos</a></li>
                     </ul>
                 </li>
-                <li><a href="#">Sobre</a></li>
+                <li><a href="sobre.php">Sobre</a></li>
             </ul>
 
             <div class="profile-dropdown">

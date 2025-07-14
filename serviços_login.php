@@ -6,9 +6,13 @@ $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "gestao_utilizadores";
-
+if (!isset($_SESSION['id_utilizadores'])) {
+    header("Location: resultados_login.php");
+    exit();
+}
 // Get the current user
 $nome_usuario = isset($_SESSION["utilizador"]) ? $_SESSION["utilizador"] : "Visitante";
+
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 

@@ -37,6 +37,7 @@ if (isset($_SESSION['support_form_data'])) {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+     <link rel="icon" type="image/png" href="../berto.png" />
     <style>
         :root {
             --primary-color: #059669;
@@ -717,12 +718,13 @@ if (isset($_SESSION['support_form_data'])) {
         <div class="navbar-container">
             <h1>Berto</h1>
             <ul class="navbar-list">
-                <li><a href="index.php">Início</a></li>
-                <li><a href="produtos.php">Produtos</a></li>
-                <li><a href="servicos_resultados.php">Serviços</a></li>
-                <li><a href="suporte.php" class="active">Suporte</a></li>
-                <li><a href="#">Sobre</a></li>
-            </ul>
+            <li><a href="index.php">Início</a></li>
+            <li><a href="produtos.php">Produtos</a></li>
+            <li><a href="serviços_login.php">Serviços</a></li>
+            <li><a href="suporte.php" class="active">Suporte</a></li>
+            <li><a href="messages.php">Mensagens</a></li>
+            <li><a href="sobre.php" >Sobre</a></li>
+        </ul>
 
             <div class="profile-dropdown">
                 <div onclick="toggle()" class="profile-dropdown-btn">
@@ -845,7 +847,7 @@ if (isset($_SESSION['support_form_data'])) {
                         <i class="fas fa-chevron-down"></i>
                     </button>
                     <div class="faq-answer">
-                        Para criar uma conta, clique em "Registrar" no menu superior e preencha o formulário com suas informações pessoais. Você receberá um email de confirmação para ativar sua conta.
+                        Para criar uma conta, clique em "Registrar" no menu superior e preencha o formulário com suas informações pessoais.
                     </div>
                 </div>
 
@@ -859,45 +861,8 @@ if (isset($_SESSION['support_form_data'])) {
                     </div>
                 </div>
 
-                <div class="faq-item" style="animation-delay: 200ms">
-                    <button class="faq-question" onclick="toggleFAQ(this)">
-                        Como funciona o sistema de pagamentos?
-                        <i class="fas fa-chevron-down"></i>
-                    </button>
-                    <div class="faq-answer">
-                        Aceitamos cartões de crédito, débito e transferências bancárias. Todos os pagamentos são processados de forma segura através de nossos parceiros certificados.
-                    </div>
-                </div>
+                
 
-                <div class="faq-item" style="animation-delay: 300ms">
-                    <button class="faq-question" onclick="toggleFAQ(this)">
-                        Posso cancelar meu pedido?
-                        <i class="fas fa-chevron-down"></i>
-                    </button>
-                    <div class="faq-answer">
-                        Sim, você pode cancelar seu pedido até 24 horas após a confirmação. Acesse sua conta e vá para "Meus Pedidos" para gerenciar seus pedidos.
-                    </div>
-                </div>
-
-                <div class="faq-item" style="animation-delay: 400ms">
-                    <button class="faq-question" onclick="toggleFAQ(this)">
-                        Como posso rastrear meu pedido?
-                        <i class="fas fa-chevron-down"></i>
-                    </button>
-                    <div class="faq-answer">
-                        Após a confirmação do pedido, você receberá um código de rastreamento por email. Use este código em nossa página de rastreamento para acompanhar o status da entrega.
-                    </div>
-                </div>
-
-                <div class="faq-item" style="animation-delay: 500ms">
-                    <button class="faq-question" onclick="toggleFAQ(this)">
-                        Qual é a política de devolução?
-                        <i class="fas fa-chevron-down"></i>
-                    </button>
-                    <div class="faq-answer">
-                        Oferecemos 30 dias para devolução de produtos em perfeito estado. O produto deve estar na embalagem original e acompanhado da nota fiscal.
-                    </div>
-                </div>
             </div>
         </section>
 

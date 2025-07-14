@@ -199,7 +199,7 @@ $conn->close();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Berto - Centro de Disputas</title>
-    <link rel="stylesheet" href="styles/header2.css" />
+   
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
     <style>
         :root {
@@ -221,6 +221,164 @@ $conn->close();
             --warning-color: #f59e0b;
             --error-color: #ef4444;
             --dispute-color: #dc2626;
+        }
+ /* Navbar Styles */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .navbar-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .navbar h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            transition: color var(--transition-speed);
+        }
+
+        .navbar h1:hover {
+            color: var(--primary-hover);
+        }
+
+        .navbar-list {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar-list a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-weight: 500;
+            font-size: 0.95rem;
+            padding: 0.5rem 1rem;
+            border-radius: 12px;
+            transition: all var(--transition-speed);
+            position: relative;
+        }
+
+        .navbar-list a:hover {
+            color: var(--primary-color);
+            background-color: rgba(16, 185, 129, 0.1);
+        }
+
+        .navbar-list a.active {
+            color: var(--primary-color);
+            background-color: rgba(16, 185, 129, 0.1);
+            font-weight: 600;
+        }
+
+        /* Profile Dropdown */
+        .profile-dropdown {
+            position: relative;
+        }
+
+        .profile-dropdown-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 1rem;
+            background: var(--card-background);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all var(--transition-speed);
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .profile-dropdown-btn:hover {
+            border-color: var(--primary-color);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .profile-img {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .profile-img i {
+            color: white;
+            font-size: 0.875rem;
+        }
+
+        .profile-dropdown-list {
+            position: absolute;
+            top: calc(100% + 0.5rem);
+            right: 0;
+            background: var(--card-background);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-strong);
+            min-width: 220px;
+            list-style: none;
+            padding: 0.5rem 0;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all var(--transition-speed);
+        }
+
+        .profile-dropdown.active .profile-dropdown-list {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .profile-dropdown-list-item a {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.875rem 1.25rem;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all var(--transition-speed);
+        }
+
+        .profile-dropdown-list-item a:hover {
+            background-color: rgba(16, 185, 129, 0.05);
+            color: var(--primary-color);
+        }
+
+        .profile-dropdown-list hr {
+            margin: 0.5rem 0;
+            border: none;
+            border-top: 1px solid var(--border-color);
         }
 
         * {
@@ -525,253 +683,428 @@ $conn->close();
                 gap: 0.25rem;
             }
         }
+        .footer {
+            background: var(--text-primary);
+            color: white;
+            margin-top: 0;
+        }
+
+        .footer .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer .row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-col h4 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: var(--primary-light);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-col ul li a {
+            color: #d1d5db;
+            text-decoration: none;
+            transition: color var(--transition-speed);
+            font-weight: 400;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: #d1d5db;
+            transition: all var(--transition-speed);
+        }
+
+        .social-links a:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #9ca3af;
+        }
+
+        /* Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .highlight-card,
+        .step,
+        .category {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 1rem;
+            }
+
+            .navbar-list {
+                display: none;
+            }
+
+            .hero {
+                padding: 5rem 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .highlights .container,
+            .steps,
+            .categories {
+                grid-template-columns: 1fr;
+            }
+
+            .how-it-works h2,
+            .popular-categories h2,
+            .cta h2 {
+                font-size: 2rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+        }
+
     </style>
 </head>
 
 <body>
-    <nav class="navbar">
-        <h1>Berto</h1>
-        <ul class="navbar-list">
-            <li><a href="index.php">Início</a></li>
-            <li><a href="produtos.php">Produtos</a></li>
-            <li><a href="servicos_resultados.php">Serviços</a></li>
-            <li><a href="suporte.php">Suporte</a></li>
-            <li><a href="messages.php">Mensagens</a></li>
-            <li><a href="disputes.php" class="active">Disputas</a></li>
+   <nav class="navbar">
+    <h1>Berto</h1>
+    <ul class="navbar-list">
+        <li><a href="index.php">Início</a></li>
+        <li><a href="produtos.php">Produtos</a></li>
+        <li><a href="servicos_resultados.php">Serviços</a></li>
+        <li><a href="suporte.php">Suporte</a></li>
+        <li><a href="messages.php">Mensagens</a></li>
+        <li><a href="disputes.php" class="active">Disputas</a></li>
+    </ul>
+
+    <div class="profile-dropdown">
+        <div onclick="toggle()" class="profile-dropdown-btn">
+            <div class="profile-img">
+                <i class="fa-solid fa-user"></i>
+            </div>
+            <span>
+                <?php echo htmlspecialchars($nome_usuario); ?>
+                <i class="fa-solid fa-chevron-down"></i>
+            </span>
+        </div>
+
+        <ul class="profile-dropdown-list">
+            <li class="profile-dropdown-list-item">
+                <a href="utilizador/profile/index.php">
+                    <i class="fa-regular fa-user"></i>
+                    Editar Perfil
+                </a>
+            </li>
+            <li class="profile-dropdown-list-item">
+                <a href="delivery_proof.php">
+                    <i class="fa-solid fa-truck"></i>
+                    Provas de Entrega
+                </a>
+            </li>
+            <li class="profile-dropdown-list-item">
+                <a href="user_balance.php">
+                    <i class="fa-solid fa-wallet"></i>
+                    O Meu Saldo
+                </a>
+            </li>
+            <hr />
+            <li class="profile-dropdown-list-item">
+                <form id="logout-form" action="utilizador/logout.php" method="POST">
+                    <input type="hidden" name="botaoLogout">
+                    <a href="#" onclick="document.getElementById('logout-form').submit();">
+                        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                        Sair
+                    </a>
+                </form>
+            </li>
         </ul>
+    </div>
+</nav>
 
-        <div class="profile-dropdown">
-            <div onclick="toggle()" class="profile-dropdown-btn">
-                <div class="profile-img">
-                    <i class="fa-solid fa-user"></i>
-                </div>
-                <span>
-                    <?php echo htmlspecialchars($nome_usuario); ?>
-                    <i class="fa-solid fa-chevron-down"></i>
-                </span>
-            </div>
+<main class="main-container">
+    <div class="page-header">
+        <h1>Centro de Disputas</h1>
+        <p>Resolva conflitos e problemas com as suas transações</p>
+    </div>
 
-            <ul class="profile-dropdown-list">
-                <li class="profile-dropdown-list-item">
-                    <a href="utilizador/profile/index.php">
-                        <i class="fa-regular fa-user"></i>
-                        Editar Perfil
-                    </a>
-                </li>
-                <li class="profile-dropdown-list-item">
-                    <a href="delivery_proof.php">
-                        <i class="fa-solid fa-truck"></i>
-                        Provas de Entrega
-                    </a>
-                </li>
-                <li class="profile-dropdown-list-item">
-                    <a href="user_balance.php">
-                        <i class="fa-solid fa-wallet"></i>
-                        Meu Saldo
-                    </a>
-                </li>
-                <hr />
-                <li class="profile-dropdown-list-item">
-                    <form id="logout-form" action="utilizador/logout.php" method="POST">
-                        <input type="hidden" name="botaoLogout">
-                        <a href="#" onclick="document.getElementById('logout-form').submit();">
-                            <i class="fa-solid fa-arrow-right-from-bracket"></i>
-                            Sair
-                        </a>
-                    </form>
-                </li>
-            </ul>
+    <?php if (isset($success_message)): ?>
+        <div class="alert alert-success">
+            <i class="fas fa-check-circle"></i>
+            <span><?php echo htmlspecialchars($success_message); ?></span>
         </div>
-    </nav>
+    <?php endif; ?>
 
-    <main class="main-container">
-        <div class="page-header">
-            <h1>Centro de Disputas</h1>
-            <p>Resolva conflitos e problemas com suas transações</p>
+    <?php if (isset($error_message)): ?>
+        <div class="alert alert-error">
+            <i class="fas fa-exclamation-circle"></i>
+            <span><?php echo htmlspecialchars($error_message); ?></span>
         </div>
+    <?php endif; ?>
 
-        <?php if (isset($success_message)): ?>
-            <div class="alert alert-success">
-                <i class="fas fa-check-circle"></i>
-                <span><?php echo htmlspecialchars($success_message); ?></span>
-            </div>
-        <?php endif; ?>
+    <!-- Tabs -->
+    <div class="tabs">
+        <button class="tab active" onclick="switchTab('create')">
+            <i class="fas fa-plus"></i> Criar Disputa
+        </button>
+        <button class="tab" onclick="switchTab('my-disputes')">
+            <i class="fas fa-gavel"></i> As Minhas Disputas (<?= $disputes->num_rows ?>)
+        </button>
+    </div>
 
-        <?php if (isset($error_message)): ?>
-            <div class="alert alert-error">
-                <i class="fas fa-exclamation-circle"></i>
-                <span><?php echo htmlspecialchars($error_message); ?></span>
-            </div>
-        <?php endif; ?>
+    <!-- Tab: Criar Disputa -->
+    <div id="create-tab" class="tab-content active">
+        <div class="section-card">
+            <h2 class="section-title">
+                <i class="fas fa-exclamation-triangle"></i>
+                Criar Nova Disputa
+            </h2>
 
-        <!-- Tabs -->
-        <div class="tabs">
-            <button class="tab active" onclick="switchTab('create')">
-                <i class="fas fa-plus"></i> Criar Disputa
-            </button>
-            <button class="tab" onclick="switchTab('my-disputes')">
-                <i class="fas fa-gavel"></i> Minhas Disputas (<?= $disputes->num_rows ?>)
-            </button>
-        </div>
-
-        <!-- Tab: Criar Disputa -->
-        <div id="create-tab" class="tab-content active">
-            <div class="section-card">
-                <h2 class="section-title">
-                    <i class="fas fa-exclamation-triangle"></i>
-                    Criar Nova Disputa
-                </h2>
-
-                <?php if ($escrows->num_rows > 0): ?>
-                    <form method="POST" onsubmit="return validateDisputeForm(this)">
-                        <div class="form-group">
-                            <label>Selecionar Transação</label>
-                            <div id="escrow-list">
-                                <?php while ($escrow = $escrows->fetch_assoc()): ?>
-                                    <div class="escrow-item" onclick="selectEscrow(<?= $escrow['id'] ?>, this)">
-                                        <input type="radio" name="escrow_id" value="<?= $escrow['id'] ?>" style="display: none;">
-                                        <div style="display: flex; justify-content: space-between; align-items: center;">
-                                            <div>
-                                                <strong>Transação #<?= $escrow['id'] ?></strong>
-                                                <br>
-                                                <small>
-                                                    <?= ucfirst($escrow['user_role']) ?> • 
-                                                    Outra parte: <?= htmlspecialchars($escrow['other_party']) ?> • 
-                                                    Status: <?= ucfirst($escrow['status']) ?>
+            <?php if ($escrows->num_rows > 0): ?>
+                <form method="POST" onsubmit="return validateDisputeForm(this)">
+                    <div class="form-group">
+                        <label>Selecionar Transação</label>
+                        <div id="escrow-list">
+                            <?php while ($escrow = $escrows->fetch_assoc()): ?>
+                                <div class="escrow-item" onclick="selectEscrow(<?= $escrow['id'] ?>, this)">
+                                    <input type="radio" name="escrow_id" value="<?= $escrow['id'] ?>" style="display: none;">
+                                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                                        <div>
+                                            <strong>Transação #<?= $escrow['id'] ?></strong>
+                                            <br>
+                                            <small>
+                                                <?= ucfirst($escrow['user_role']) ?> • 
+                                                Outra parte: <?= htmlspecialchars($escrow['other_party']) ?> • 
+                                                Estado: <?= ucfirst($escrow['status']) ?>
+                                            </small>
+                                        </div>
+                                        <div>
+                                            <strong>€<?= number_format($escrow['total_amount'], 2) ?></strong>
+                                            <?php if ($escrow['dispute_count'] > 0): ?>
+                                                <br><small style="color: var(--dispute-color);">
+                                                    <?= $escrow['dispute_count'] ?> disputa(s) existente(s)
                                                 </small>
-                                            </div>
-                                            <div>
-                                                <strong>€<?= number_format($escrow['total_amount'], 2) ?></strong>
-                                                <?php if ($escrow['dispute_count'] > 0): ?>
-                                                    <br><small style="color: var(--dispute-color);">
-                                                        <?= $escrow['dispute_count'] ?> disputa(s) existente(s)
-                                                    </small>
-                                                <?php endif; ?>
-                                            </div>
+                                            <?php endif; ?>
                                         </div>
                                     </div>
-                                <?php endwhile; ?>
-                            </div>
+                                </div>
+                            <?php endwhile; ?>
                         </div>
-
-                        <div class="form-group">
-                            <label for="dispute_type">Tipo de Problema</label>
-                            <select name="dispute_type" id="dispute_type" required>
-                                <option value="">Selecione o tipo...</option>
-                                <option value="non_delivery">Não entregue</option>
-                                <option value="poor_quality">Qualidade ruim</option>
-                                <option value="payment_issue">Problema de pagamento</option>
-                                <option value="contract_breach">Quebra de contrato</option>
-                                <option value="other">Outro</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="title">Título da Disputa</label>
-                            <input type="text" name="title" id="title" placeholder="Descreva brevemente o problema" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="description">Descrição Detalhada</label>
-                            <textarea name="description" id="description" placeholder="Explique detalhadamente o que aconteceu, quando ocorreu, e qual solução você espera..." required></textarea>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="evidence_links">Evidências (Links)</label>
-                            <textarea name="evidence_links" id="evidence_links" placeholder="Cole aqui links para fotos, documentos, conversas, etc. (um por linha)"></textarea>
-                        </div>
-
-                        <button type="submit" name="create_dispute" class="submit-btn">
-                            <i class="fas fa-gavel"></i>
-                            Criar Disputa
-                        </button>
-                    </form>
-                <?php else: ?>
-                    <div class="empty-state">
-                        <i class="fas fa-handshake"></i>
-                        <p>Nenhuma transação disponível para disputa</p>
-                        <small>Você precisa ter transações ativas para criar disputas</small>
                     </div>
-                <?php endif; ?>
-            </div>
+
+                    <div class="form-group">
+                        <label for="dispute_type">Tipo de Problema</label>
+                        <select name="dispute_type" id="dispute_type" required>
+                            <option value="">Selecione o tipo...</option>
+                            <option value="non_delivery">Não entregue</option>
+                            <option value="poor_quality">Qualidade baixa</option>
+                            <option value="payment_issue">Problema de pagamento</option>
+                            <option value="contract_breach">Quebra de contrato</option>
+                            <option value="other">Outro</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="title">Título da Disputa</label>
+                        <input type="text" name="title" id="title" placeholder="Descreva brevemente o problema" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description">Descrição Detalhada</label>
+                        <textarea name="description" id="description" placeholder="Explique detalhadamente o que aconteceu, quando ocorreu, e qual a solução que espera..." required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="evidence_links">Evidências (Links)</label>
+                        <textarea name="evidence_links" id="evidence_links" placeholder="Cole aqui links para fotos, documentos, conversas, etc. (um por linha)"></textarea>
+                    </div>
+
+                    <button type="submit" name="create_dispute" class="submit-btn">
+                        <i class="fas fa-gavel"></i>
+                        Criar Disputa
+                    </button>
+                </form>
+            <?php else: ?>
+                <div class="empty-state">
+                    <i class="fas fa-handshake"></i>
+                    <p>Nenhuma transação disponível para disputa</p>
+                    <small>Precisa de ter transações ativas para criar disputas</small>
+                </div>
+            <?php endif; ?>
         </div>
+    </div>
 
-        <!-- Tab: Minhas Disputas -->
-        <div id="my-disputes-tab" class="tab-content">
-            <div class="section-card">
-                <h2 class="section-title">
-                    <i class="fas fa-gavel"></i>
-                    Minhas Disputas
-                </h2>
+    <!-- Tab: Minhas Disputas -->
+    <div id="my-disputes-tab" class="tab-content">
+        <div class="section-card">
+            <h2 class="section-title">
+                <i class="fas fa-gavel"></i>
+                As Minhas Disputas
+            </h2>
 
-                <?php if ($disputes->num_rows > 0): ?>
-                    <?php while ($dispute = $disputes->fetch_assoc()): ?>
-                        <div class="dispute-item">
-                            <div class="dispute-header">
-                                <div class="dispute-title">
-                                    #<?= $dispute['id'] ?> - <?= htmlspecialchars($dispute['title']) ?>
-                                </div>
-                                <div class="dispute-status <?= $dispute['status'] ?>">
-                                    <?= ucfirst(str_replace('_', ' ', $dispute['status'])) ?>
-                                </div>
+            <?php if ($disputes->num_rows > 0): ?>
+                <?php while ($dispute = $disputes->fetch_assoc()): ?>
+                    <div class="dispute-item">
+                        <div class="dispute-header">
+                            <div class="dispute-title">
+                                #<?= $dispute['id'] ?> - <?= htmlspecialchars($dispute['title']) ?>
+                            </div>
+                            <div class="dispute-status <?= $dispute['status'] ?>">
+                                <?= ucfirst(str_replace('_', ' ', $dispute['status'])) ?>
+                            </div>
+                        </div>
+                        
+                        <div class="dispute-meta">
+                            <span><strong>Tipo:</strong> <?= ucfirst(str_replace('_', ' ', $dispute['dispute_type'])) ?></span>
+                            <span><strong>Valor:</strong> €<?= number_format($dispute['total_amount'], 2) ?></span>
+                            <span><strong>Papel:</strong> <?= ucfirst($dispute['user_role']) ?></span>
+                            <span><strong>Outra parte:</strong> <?= htmlspecialchars($dispute['other_party']) ?></span>
+                            <span><strong>Criado:</strong> <?= date('d/m/Y H:i', strtotime($dispute['created_at'])) ?></span>
+                        </div>
+                        
+                        <div class="dispute-description">
+                            <?= nl2br(htmlspecialchars($dispute['description'])) ?>
+                        </div>
+                        
+                        <?php if ($dispute['status'] == 'open' && $dispute['user_role'] == 'respondente'): ?>
+                            <div class="dispute-actions">
+                                <button class="respond-btn" onclick="showResponseForm(<?= $dispute['id'] ?>)">
+                                    <i class="fas fa-reply"></i> Responder
+                                </button>
                             </div>
                             
-                            <div class="dispute-meta">
-                                <span><strong>Tipo:</strong> <?= ucfirst(str_replace('_', ' ', $dispute['dispute_type'])) ?></span>
-                                <span><strong>Valor:</strong> €<?= number_format($dispute['total_amount'], 2) ?></span>
-                                <span><strong>Papel:</strong> <?= ucfirst($dispute['user_role']) ?></span>
-                                <span><strong>Outra parte:</strong> <?= htmlspecialchars($dispute['other_party']) ?></span>
-                                <span><strong>Criado:</strong> <?= date('d/m/Y H:i', strtotime($dispute['created_at'])) ?></span>
-                            </div>
-                            
-                            <div class="dispute-description">
-                                <?= nl2br(htmlspecialchars($dispute['description'])) ?>
-                            </div>
-                            
-                            <?php if ($dispute['status'] == 'open' && $dispute['user_role'] == 'respondente'): ?>
-                                <div class="dispute-actions">
-                                    <button class="respond-btn" onclick="showResponseForm(<?= $dispute['id'] ?>)">
-                                        <i class="fas fa-reply"></i> Responder
+                            <div id="response-form-<?= $dispute['id'] ?>" style="display: none; margin-top: 1rem;">
+                                <form method="POST">
+                                    <input type="hidden" name="dispute_id" value="<?= $dispute['id'] ?>">
+                                    <div class="form-group">
+                                        <label>A sua Resposta</label>
+                                        <textarea name="response" placeholder="Explique a sua versão dos factos..." required></textarea>
+                                    </div>
+                                    <button type="submit" name="respond_dispute" class="submit-btn">
+                                        <i class="fas fa-paper-plane"></i>
+                                        Enviar Resposta
                                     </button>
-                                </div>
-                                
-                                <div id="response-form-<?= $dispute['id'] ?>" style="display: none; margin-top: 1rem;">
-                                    <form method="POST">
-                                        <input type="hidden" name="dispute_id" value="<?= $dispute['id'] ?>">
-                                        <div class="form-group">
-                                            <label>Sua Resposta</label>
-                                            <textarea name="response" placeholder="Explique sua versão dos fatos..." required></textarea>
-                                        </div>
-                                        <button type="submit" name="respond_dispute" class="submit-btn">
-                                            <i class="fas fa-paper-plane"></i>
-                                            Enviar Resposta
-                                        </button>
-                                    </form>
-                                </div>
-                            <?php endif; ?>
-                            
-                            <?php if ($dispute['resolution']): ?>
-                                <div style="margin-top: 1rem; padding: 1rem; background: #f0f9ff; border-radius: 8px;">
-                                    <strong>Resolução:</strong><br>
-                                    <?= nl2br(htmlspecialchars($dispute['resolution'])) ?>
-                                    <?php if ($dispute['resolution_amount']): ?>
-                                        <br><strong>Valor da resolução:</strong> €<?= number_format($dispute['resolution_amount'], 2) ?>
-                                    <?php endif; ?>
-                                </div>
-                            <?php endif; ?>
-                        </div>
-                    <?php endwhile; ?>
-                <?php else: ?>
-                    <div class="empty-state">
-                        <i class="fas fa-peace"></i>
-                        <p>Nenhuma disputa encontrada</p>
-                        <small>Suas disputas aparecerão aqui</small>
+                                </form>
+                            </div>
+                        <?php endif; ?>
+                        
+                        <?php if ($dispute['resolution']): ?>
+                            <div style="margin-top: 1rem; padding: 1rem; background: #f0f9ff; border-radius: 8px;">
+                                <strong>Resolução:</strong><br>
+                                <?= nl2br(htmlspecialchars($dispute['resolution'])) ?>
+                                <?php if ($dispute['resolution_amount']): ?>
+                                    <br><strong>Valor da resolução:</strong> €<?= number_format($dispute['resolution_amount'], 2) ?>
+                                <?php endif; ?>
+                            </div>
+                        <?php endif; ?>
                     </div>
-                <?php endif; ?>
+                <?php endwhile; ?>
+            <?php else: ?>
+                <div class="empty-state">
+                    <i class="fas fa-peace"></i>
+                    <p>Nenhuma disputa encontrada</p>
+                    <small>As suas disputas aparecerão aqui</small>
+                </div>
+            <?php endif; ?>
+        </div>
+    </div>
+</main>
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="footer-col">
+                <h4>Empresa</h4>
+                <ul>
+                    <li><a href="#">Sobre Nós</a></li>
+                    <li><a href="#">Berto © 2025 by Afonso Nunes Ferraz está licenciado sob CC BY-NC-SA 4.0</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Ajuda</h4>
+                <ul>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Como Funciona</a></li>
+                    <li><a href="suporte.php">Suporte</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Siga-nos</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
             </div>
         </div>
-    </main>
-
+        <div class="footer-bottom">
+            <p>&copy; <?php echo date('Y'); ?> Berto. Todos os direitos reservados.</p>
+        </div>
+    </div>
+</footer>
     <script>
         function toggle() {
             document.querySelector('.profile-dropdown').classList.toggle('active');
